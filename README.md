@@ -4,12 +4,6 @@ Landing page untuk komunitas/produk Peternak Muda.
 
 Teknologi utama: Next.js 15 (App Router) + TypeScript, TailwindCSS, Framer Motion. Unit tests menggunakan Jest + React Testing Library. Deployment diarahkan ke Vercel.
 
-## Struktur penting
-
-- `frontend/` — Next.js app, komponen, API routes (MVP berada di sini)
-- `docs/` — spesifikasi teknis, API, workflows
-- `public/` — gambar dan aset statis
-
 ## Menjalankan lokal (frontend)
 
 Pastikan Node >= 18 dan npm tersedia. Di Windows PowerShell:
@@ -36,43 +30,10 @@ Jalankan unit tests di folder `frontend`:
 
 ```powershell
 cd frontend
-npm test
+npm test / test:coverage
 ```
 
 Coverage disimpan di `frontend/coverage` jika konfigurasi test mengumpulkannya.
-
-## CI
-
-Ada workflow GitHub Actions sederhana di `.github/workflows/ci.yml` yang berjalan pada `push` dan `pull_request` ke `main`/`develop`. Workflow menjalankan install, lint, test, dan build untuk folder `frontend`, dan meng-upload artifact coverage.
-
-## Deployment
-
-Rekomendasi: Gunakan Vercel untuk deployment (Next.js sangat kompatibel). Sambungkan repository ke Vercel dan gunakan branch `main` untuk production. Jika ingin otomatis deploy via Actions, butuh Vercel token dan konfigurasi tambahan.
-
-### Setup Vercel secrets for GitHub Actions
-
-To allow the workflows to deploy to Vercel you must add three repository secrets in GitHub:
-
-- `VERCEL_TOKEN` — a personal token from Vercel with deploy scope. Create it in Vercel Dashboard → Account Settings → Tokens.
-- `VERCEL_ORG_ID` — your Vercel organization id (found in Project Settings or Vercel API/Project dashboard).
-- `VERCEL_PROJECT_ID` — the Vercel project id for this repository (found in the Project Settings / General tab).
-
-Add secrets in GitHub: Repository → Settings → Secrets and variables → Actions → New repository secret. Use the exact names above.
-
-### How the workflows work
-
-- `Deploy on Push` (`.github/workflows/deploy-on-push.yml`) — automatic: fires on push to `main`. It runs tests, builds the frontend and deploys to Vercel using the secrets above.
-- `Commit & Deploy (manual)` (`.github/workflows/commit-and-deploy.yml`) — manual: run from the Actions tab using `Run workflow`. It will commit local changes under `docs/` and `frontend/` (if present), push to the selected branch, build and deploy to Vercel.
-
-### Manual run example
-
-1. Push your feature branch and open a Pull Request.
-2. When ready, merge to `main` (or run the manual `Commit & Deploy` from Actions to push generated docs/build changes to `main`).
-3. The `Deploy on Push` workflow will run and deploy to Vercel.
-
-If you'd like, I can also add a small script to print the Vercel project/org IDs from the Vercel CLI to help find the correct values.
-
-## Kontribusi
 
 ## Metodologi & Alur Kerja (BMAD v6-alpha)
 
