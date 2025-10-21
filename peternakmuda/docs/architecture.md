@@ -29,8 +29,12 @@ Backend/API (serverless via Next.js API Routes)
 - Production option: migrate to Postgres/SQLite or headless CMS (Strapi/Sanity) jika perlu.
 
 Hosting & CI/CD
-- Vercel untuk hosting frontend + serverless API (automatic previews on PRs).
-- CI checks (pre-deploy): lint, typecheck (tsc --noEmit), jest tests, build (next build).
+- Primary: Vercel Git Integration (recommended)
+  - Import repository into Vercel and set Root directory to `frontend`. Vercel will automatically create Preview deployments for PRs and Production deployments on merge to the configured branch (typically `main`).
+  - CI checks (pre-deploy): lint, typecheck (tsc --noEmit), jest tests, build (next build). Keep these checks in GitHub Actions to fail fast; Vercel will only deploy code that is pushed to the repo (previews on PRs, production on merge).
+
+- Optional: Vercel CLI from CI (advanced)
+  - If finer control is needed (e.g., deploy promotions, or deploy from a specific runner), use Vercel CLI in GitHub Actions with a `VERCEL_TOKEN` stored as a GitHub secret. This is optional — the Git Integration is preferred for simplicity.
 
 Observability & Monitoring
 - Error tracking: Sentry (optional)

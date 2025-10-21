@@ -30,7 +30,9 @@ Jalankan unit tests di folder `frontend`:
 
 ```powershell
 cd frontend
-npm test / test:coverage
+npm test
+# atau untuk coverage
+npm run test:coverage
 ```
 
 Coverage disimpan di `frontend/coverage` jika konfigurasi test mengumpulkannya.
@@ -117,11 +119,12 @@ Berikut langkah praktis dan file referensi yang harus digunakan saat menyusun re
 3. SM: jalankan `*create-story` → simpan draft story di `docs/stories/gallery.md`
 4. Dev: buat branch `feature/gallery`, implementasi, tambahkan unit tests
 5. Test Architect: jalankan `*atdd`/`*ci` workflows untuk men-generate test plan dan quality gates
-6. Push PR → CI runs (lint, test, build) → ketika hijau, merge → Deploy via Vercel
+6. Dev/Architect → CI runs (lint, test, build) → ketika hijau, merge → Deploy via Vercel
 
-Jika mau, saya bisa menambahkan templat markdown untuk `docs/requirements.md`, `docs/stories/template.md`, dan `docs/architecture-template.md` agar kontributor langsung dapat mengisi. Mau saya buatkan? 
-
-
+## Struktur proyek (ringkasan)
+frontend/ — Next.js app (App Router)
+docs/ — requirements, architecture, deployment guide, stories
+bmad/ — BMAD workflows & agents configs
 ## Kontak
 
 Tim: Peternak Muda — maintainers
