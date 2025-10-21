@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "title": "Peternak Ayam",
+        "image": "/gallery/peternak-ayam.jpg",
+        "description": "Aktivitas peternak muda di kandang ayam modern.",
+        "createdAt": "2025-10-20T08:00:00.000Z"
+    },
+    {
+        "id": 2,
+        "title": "Peternak Kambing",
+        "image": "/gallery/peternak-kambing.jpg",
+        "description": "Peternak muda merawat kambing dengan teknologi terbaru.",
+        "createdAt": "2025-10-19T09:30:00.000Z"
+    },
+    {
+        "id": 3,
+        "title": "Peternak Sapi",
+        "image": "/gallery/peternak-sapi.jpg",
+        "description": "Komunitas peternak muda bersama sapi unggulan.",
+        "createdAt": "2025-10-18T14:15:00.000Z"
+    }
+]
