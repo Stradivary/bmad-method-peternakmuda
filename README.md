@@ -124,37 +124,34 @@ Berikut langkah praktis dan file referensi yang harus digunakan saat menyusun re
 Berikut bagan ringkas alur agent dan proses. Gunakan ini sebagai panduan umum alur kerja (ide → analisis → implementasi → test → deploy).
 
 ```mermaid
-flowchart TD
+flowchart TB
+    subgraph CIS[💡 Creative & Ideation Suite (CIS)]
+        A1["🧠 Brainstorming Coach<br/>Output: mindmaps, ide-boards"]
+        A2["🎨 Creative Problem Solver<br/>Output: opsi solusi, A/B test plan"]
+        A3["📖 Storyteller<br/>Output: draft stories & early ACs"]
+        A1 --> A2 --> A3
+    end
 
-%% === Creative & Ideation Suite ===
-subgraph CIS[Creative & Ideation Suite]
-A1[Brainstorming Coach<br>Fasilitasi ideasi terstruktur<br><b>Output:</b> mindmaps, ide-boards]
-A2[Creative Problem Solver<br>Berikan alternatif solusi & eksperimen<br><b>Output:</b> opsi solusi, A/B test plan]
-A3[Storyteller<br>Susun narasi produk & user journeys<br><b>Output:</b> draft stories & early ACs]
-end
+    subgraph BMM[📊 Business & Modern Methods (BMM)]
+        B1["📈 Analyst<br/>Output: PRD, acceptance checklist"]
+        B2["🏗️ Architect<br/>Output: technical-spec, diagram"]
+        B3["🗺️ PM (Product Manager)<br/>Output: roadmap, release plan"]
+        B4["🧩 SM (Scrum Master / Story Maker)<br/>Output: stories, DoD, test pointers"]
+        B5["🧑‍🎨 UX Expert<br/>Output: wireframes, tokens, prototype"]
+        B1 --> B2 --> B3 --> B4 --> B5
+    end
 
-%% === Business & Modern Methods ===
-subgraph BMM[Business & Modern Methods]
-B1[Business Analyst<br>Konversi ide menjadi requirement<br><b>Output:</b> PRD, acceptance checklist]
-B2[Architect<br>Desain arsitektur tingkat tinggi<br><b>Output:</b> technical spec, diagram]
-B3[Product Manager<br>Prioritasi roadmap & milestone<br><b>Output:</b> roadmap, release plan]
-B4[Scrum Master / Story Maker<br>Ubah requirement ke story-ready tasks<br><b>Output:</b> stories, DoD, test pointers]
-B5[UX Expert<br>Detailkan UI/UX, accessibility, usability<br><b>Output:</b> wireframes, tokens, prototype]
-end
+    subgraph DEV[⚙️ Development & Quality]
+        C1["💻 Dev<br/>Output: PR + documentation"]
+        C2["🧪 Test Architect<br/>Output: test plan, quality gates"]
+        C1 --> C2
+    end
 
-%% === Development & QA ===
-subgraph DEV[Development & Quality]
-C1[Developer<br>Implementasi kode & unit test<br><b>Output:</b> PR + documentation]
-C2[Test Architect<br>Desain strategi testing & CI jobs<br><b>Output:</b> test plan, quality gates]
-end
-
-%% === Alur utama ===
-A1 --> A2 --> A3 --> B1 --> B2 --> B3 --> B4 --> B5 --> C1 --> C2
-
-%% === Feedback loops ===
-C2 --> B4
-B4 --> B1
-B1 --> A3
+    A3 --> B1
+    B5 --> C1
+    C2 -.->|feedback| B4
+    B4 -.->|refinement| B1
+    B1 -.->|clarification| A3
 ```
 
 ### Deskripsi agen (general, detil penting):
