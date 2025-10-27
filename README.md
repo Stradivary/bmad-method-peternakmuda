@@ -123,13 +123,40 @@ Berikut langkah praktis dan file referensi yang harus digunakan saat menyusun re
 
 Berikut bagan ringkas alur agent dan proses. Gunakan ini sebagai panduan umum alur kerja (ide → analisis → implementasi → test → deploy).
 
-![Agent & workflow flowchart](peternakmuda/docs/agent-flow.svg)
+flowchart TD
 
-If your viewer doesn't render images, here's a simple text flow you can read:
+%% ==== Creative & Ideation Suite ====
+subgraph CIS[Creative & Ideation Suite (CIS)]
+    A1[🧠 brainstorming-coach\nFasilitasi ideasi terstruktur\nOutput: mindmaps, ide-boards]
+    A2[🎨 creative-problem-solver\nBerikan alternatif solusi & eksperimen\nOutput: opsi solusi, A/B test plan]
+    A3[📖 storyteller\nSusun narasi produk & user journeys\nOutput: draft stories & early ACs]
+end
 
-CIS (Ideation) → BMM (Analysis & Design) → DEV (Development & UX) → TEST (Testing) → CI/Deploy (Review & Vercel)
+%% ==== Business & Modern Methods ====
+subgraph BMM[Business & Modern Methods (BMM)]
+    B1[📊 analyst\nKonversi ide menjadi requirement\nOutput: PRD, acceptance checklist]
+    B2[🏗️ architect\nDesain arsitektur tingkat tinggi\nOutput: technical-spec, diagram]
+    B3[🗺️ pm (Product Manager)\nPrioritasi roadmap & milestone\nOutput: roadmap, release plan]
+    B4[🧩 sm (Scrum Master / Story Maker)\nUbah requirement ke story-ready tasks\nOutput: stories, DoD, test pointers]
+    B5[🧑‍🎨 ux-expert\nDetailkan UI/UX, accessibility, usability\nOutput: wireframes, tokens, prototype]
+end
 
-Jika viewer tidak merender Mermaid, anggaplah alur logis sebagai: CIS → BMM → Dev → Test → CI → Deploy.
+%% ==== Development & QA ====
+subgraph DEV[Development & Quality]
+    C1[💻 dev\nImplementasi kode & unit test\nOutput: PR + documentation]
+    C2[🧪 tea (Test Architect)\nDesain strategi testing & CI jobs\nOutput: test plan, quality gates]
+end
+
+%% ==== Alur utama ====
+A1 --> A2 --> A3 --> B1
+B1 --> B2 --> B3 --> B4
+B2 --> B5
+B4 --> C1 --> C2
+
+%% ==== Feedback loops ====
+C2 -. feedback .-> B4
+B4 -. refinement .-> B1
+B1 -. clarification .-> A3
 
 Deskripsi agen (general, detil penting):
 
