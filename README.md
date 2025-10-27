@@ -128,24 +128,51 @@ flowchart TD
 
 %% ==== Creative & Ideation Suite ====
 subgraph CIS[Creative & Ideation Suite (CIS)]
-    A1[🧠 brainstorming-coach\nFasilitasi ideasi terstruktur\nOutput: mindmaps, ide-boards]
-    A2[🎨 creative-problem-solver\nBerikan alternatif solusi & eksperimen\nOutput: opsi solusi, A/B test plan]
-    A3[📖 storyteller\nSusun narasi produk & user journeys\nOutput: draft stories & early ACs]
+    A1["**brainstorming-coach**  
+Fasilitasi ideasi terstruktur  
+_Output:_ mindmaps, ide-boards"]
+
+    A2["**creative-problem-solver**  
+Berikan alternatif solusi & eksperimen  
+_Output:_ opsi solusi, A/B plan"]
+
+    A3["**storyteller**  
+Susun narasi produk & user journeys  
+_Output:_ draft stories, early ACs"]
 end
 
 %% ==== Business & Modern Methods ====
 subgraph BMM[Business & Modern Methods (BMM)]
-    B1[📊 analyst\nKonversi ide menjadi requirement\nOutput: PRD, acceptance checklist]
-    B2[🏗️ architect\nDesain arsitektur tingkat tinggi\nOutput: technical-spec, diagram]
-    B3[🗺️ pm (Product Manager)\nPrioritasi roadmap & milestone\nOutput: roadmap, release plan]
-    B4[🧩 sm (Scrum Master / Story Maker)\nUbah requirement ke story-ready tasks\nOutput: stories, DoD, test pointers]
-    B5[🧑‍🎨 ux-expert\nDetailkan UI/UX, accessibility, usability\nOutput: wireframes, tokens, prototype]
+    B1["**analyst**  
+Konversi ide jadi requirement  
+_Output:_ PRD, AC checklist"]
+
+    B2["**architect**  
+Desain arsitektur tingkat tinggi  
+_Output:_ technical-spec, diagram"]
+
+    B3["**pm (Product Manager)**  
+Prioritasi roadmap & milestone  
+_Output:_ roadmap, release plan"]
+
+    B4["**sm (Scrum Master / Story Maker)**  
+Format requirement jadi story-ready tasks  
+_Output:_ stories, DoD, test pointers"]
+
+    B5["**ux-expert**  
+Detailkan UI/UX, accessibility, usability  
+_Output:_ wireframes, tokens, prototype"]
 end
 
 %% ==== Development & QA ====
 subgraph DEV[Development & Quality]
-    C1[💻 dev\nImplementasi kode & unit test\nOutput: PR + documentation]
-    C2[🧪 tea (Test Architect)\nDesain strategi testing & CI jobs\nOutput: test plan, quality gates]
+    C1["**dev**  
+Implementasi kode & unit test  
+_Output:_ PR + docs"]
+
+    C2["**tea (Test Architect)**  
+Desain strategi testing & CI jobs  
+_Output:_ test plan, quality gates"]
 end
 
 %% ==== Alur utama ====
@@ -158,8 +185,7 @@ B4 --> C1 --> C2
 C2 -. feedback .-> B4
 B4 -. refinement .-> B1
 B1 -. clarification .-> A3
-
-```mermaid
+---
 
 
 Deskripsi agen (general, detil penting):
