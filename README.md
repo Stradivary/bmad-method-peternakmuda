@@ -130,24 +130,24 @@ Berikut bagan ringkas alur agent dan proses. Gunakan ini sebagai panduan umum al
 
    %% ==== Creative & Ideation Suite ====
    subgraph CIS[💡 Creative & Ideation Suite]
-      A1["🧠 Brainstorming Coach\nFokus: ideasi & persona\nOutput: mindmaps"]
-      A2["🎨 Creative Problem Solver\nAlternatif solusi & eksperimen\nOutput: opsi solusi, A/B plan"]
-      A3["📖 Storyteller\nSusun narasi produk\nOutput: draft story & AC awal"]
+      A1["🧠 Brainstorming Coach\\nFokus: ideasi & persona\\nOutput: mindmaps"]
+      A2["🎨 Creative Problem Solver\\nAlternatif solusi & eksperimen\\nOutput: opsi solusi, A/B plan"]
+      A3["📖 Storyteller\\nSusun narasi produk\\nOutput: draft story & AC awal"]
    end
 
    %% ==== Business & Modern Methods ====
    subgraph BMM[📊 Business & Modern Methods]
-      B1["📈 Analyst\nKonversi ide → requirement\nOutput: PRD, AC"]
-      B2["🏗️ Architect\nDesain arsitektur teknis\nOutput: spec & diagram"]
-      B3["🗺️ PM\nPrioritasi roadmap & milestone\nOutput: roadmap"]
-      B4["🧩 SM\nUbah requirement → story-ready tasks\nOutput: stories, DoD, test pointers"]
-      B5["🎨 UX Expert\nDetailkan UI/UX, usability\nOutput: wireframes & prototype"]
+      B1["📈 Analyst\\nKonversi ide → requirement\\nOutput: PRD, AC"]
+      B2["🏗️ Architect\\nDesain arsitektur teknis\\nOutput: spec & diagram"]
+      B3["🗺️ PM\\nPrioritasi story, roadmap & milestone\\nOutput: roadmap"]
+      B4["🧩 SM\\nUbah requirement → story-ready tasks\\nOutput: stories, DoD, test pointers"]
+      B5["🎨 UX Expert\\nDetailkan UI/UX, usability\\nOutput: wireframes & prototype"]
    end
 
    %% ==== Development & QA ====
    subgraph DEV[⚙️ Development & QA]
-      C1["💻 Dev\nImplementasi kode & unit test\nOutput: PR + docs"]
-      C2["🧪 Test Architect\nDesain strategi testing\nOutput: test plan, quality gates"]
+      C1["💻 Dev\\nImplementasi kode & unit test\\nOutput: PR + docs"]
+      C2["🧪 Test Architect\\nDesain strategi testing\\nOutput: test plan, quality gates"]
    end
 
    %% ==== Main Flow ====
