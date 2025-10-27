@@ -1,6 +1,8 @@
 ---
 title: Komponen UI — Landingpage Peternak Muda
 date: 2025-10-20
+createdBy: ux-expert
+updatedBy: ux-expert
 ---
 
 Dokumen ini menjabarkan spesifikasi setiap komponen yang wajib dibuat agar tim UI/FE dapat menulis requirement teknis.

@@ -1,6 +1,8 @@
 ---
 title: API Gallery — Spesifikasi
 date: 2025-10-20
+createdBy: analyst
+updatedBy: dev
 ---
 
 ## Endpoint

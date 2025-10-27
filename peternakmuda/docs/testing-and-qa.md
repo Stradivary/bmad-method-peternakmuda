@@ -1,6 +1,8 @@
 ---
 title: Testing & QA Plan
 date: 2025-10-20
+createdBy: tea
+updatedBy: tea
 ---
 
 ## Tujuan

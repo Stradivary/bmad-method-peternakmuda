@@ -92,23 +92,102 @@ Berikut langkah praktis dan file referensi yang harus digunakan saat menyusun re
    - Story harus berisi: context, acceptance criteria (ACs), DoD (Definition of Done), test cases, dan estimasi.
    - Simpan story di `bmad/bmm/workflows/4-implementation/stories/` atau `docs/stories/` sebagai markdown. Setelah siap, gunakan `*story-ready` untuk menandai.
 
-4) Testing Strategy
-   - Koordinasikan dengan agen BMM `tea` (Test Architect) untuk memetakan coverage: unit, integration, ATDD/E2E. (`bmad/bmm/agents/tea.md` dan `bmad/bmm/workflows/testarch/`).
-   - Implementasikan unit tests (Jest) untuk komponen UI dan route API. Simpan test file di `frontend/components/__tests__/`.
+4) Testing Strategy (rinci & praktis)
 
-5) Agents & Who Does What (Ringkasan)
-   - CIS (Creative & Ideation Suite) agents — untuk brainstorming/ideation:
-     - `brainstorming-coach` — fasilitator brainstorming (file: `bmad/cis/agents/brainstorming-coach.md`)
-     - `creative-problem-solver` — teknik kreatif & ide alternatif (`bmad/cis/agents/creative-problem-solver.md`)
-     - `storyteller` — membentuk narasi dan user journeys (`bmad/cis/agents/storyteller.md`)
-   - BMM agents — untuk analisis → implementasi → deploy:
-     - `analyst` — requirements, research, PRD. File: `bmad/bmm/agents/analyst.md`.
-     - `architect` — high-level architecture, tech decisions. File: `bmad/bmm/agents/architect.md`.
-     - `pm` — product strategy, prioritization, workflows (`bmad/bmm/agents/pm.md`).
-     - `dev` — implementasi cerita, tests, code changes (`bmad/bmm/agents/dev.md`).
-     - `ux-expert` — UX/UI specifications, accessibility guidance (`bmad/bmm/agents/ux-expert.md`).
-     - `sm` — story drafting and sprint readiness (`bmad/bmm/agents/sm.md`).
-     - `tea` — test architecture and CI quality gates (`bmad/bmm/agents/tea.md`).
+- Peran `tea` (Test Architect): bertanggung jawab merancang strategi quality gates dan matriks pengujian yang mencakup unit, integration, dan E2E. Lihat `bmad/bmm/agents/tea.md` dan workflows di `bmad/bmm/workflows/testarch/` untuk detail proses.
+
+- Lapisan pengujian frontend (recommended):
+   1. Unit tests (Jest + React Testing Library)
+       - Tujuan: verifikasi fungsi komponen, util, dan hooks terpisah.
+       - Lokasi: `frontend/components/__tests__/` atau `frontend/__tests__/`.
+       - Cara: `npm test` di folder `frontend` (lihat script di package.json).
+   2. Integration tests
+       - Tujuan: verifikasi integrasi antar komponen dan small stacks (mis. komponen + context + API mock).
+       - Tools: Jest dengan msw (Mock Service Worker) atau test runner integrasi pilihan.
+   3. End-to-end (E2E)
+       - Tujuan: verifikasi alur pengguna lengkap (mis. buka landing → buka gallery → load images → submit contact form).
+       - Tools: Playwright atau Cypress disarankan; simpan test di `frontend/e2e/`.
+
+- Coverage & Quality Gates
+   - Target minimal: tentukan threshold coverage (mis. 70%+ garis dasar) yang dipantau CI. `tea` menentukan threshold bersama PM/Architect.
+   - Linting: jalankan `npm run lint` sebagai bagian dari quality gate.
+   - Performance/Accessibility Sanity: `ux-expert` hadirkan checklist aksesibilitas dasar (contrast, semantic HTML) yang otomatis diperiksa pada review.
+
+- Implementasi praktis dalam workflow developer:
+   1. Saat story-ready, `dev` buat branch dan tulis unit tests pada saat implementasi fitur.
+   2. Gunakan mock atau test double untuk integrasi eksternal saat masih di local.
+   3. Jalankan suite lokal: `npm test` dan `npm run lint` sebelum push.
+   4. CI akan menjalankan full suite (unit + integration + build + E2E optional). Jika quality gates gagal, PR balik ke dev untuk perbaikan.
+
+5) Agents & Who Does What (Ringkasan terperinci + bagan)
+
+Berikut bagan ringkas alur agent dan proses. Gunakan ini sebagai panduan umum alur kerja (ide → analisis → implementasi → test → deploy).
+
+```mermaid
+flowchart LR
+   CIS[CIS agents\n(Ideation)]
+   BMM[BMM agents\n(Analysis & Design)]
+   DEV[Development & UX]
+   TEST[Testing (Frontend)]
+   CI[CI / Review]
+   DEPLOY[Deployment (Vercel)]
+
+   CIS --> BMM
+   BMM --> DEV
+   DEV --> TEST
+   TEST --> CI
+   CI --> DEPLOY
+```
+
+Jika viewer tidak merender Mermaid, anggaplah alur logis sebagai: CIS → BMM → Dev → Test → CI → Deploy.
+
+Deskripsi agen (general, detil penting):
+
+- CIS (Creative & Ideation Suite)
+   - `brainstorming-coach`
+      - Fungsi: fasilitator sesi ideasi terstruktur; menjamin fokus pada goal bisnis dan persona.
+      - Output: mindmaps, ide-boards, draft user journeys, list hipotesis yang diuji.
+      - Artefak terkait: notes di `docs/`, referensi bahan di `bmad/cis/agents/brainstorming-coach.md`.
+   - `creative-problem-solver`
+      - Fungsi: menyuplai teknik kreatif, alternatif solusi teknis/UX, serta opsi trade-off.
+      - Output: opsi solusi tertulis, daftar eksperimen (A/B) dan skenario risiko.
+   - `storyteller`
+      - Fungsi: menyusun narasi produk dan menyusun user journeys yang komunikatif untuk stakeholder.
+      - Output: draft stories dan early acceptance criteria yang akan diproses `analyst`/`sm`.
+
+- BMM (Business & Modern Methods)
+   - `analyst`
+      - Fungsi: konversi ide/cerita menjadi requirement yang terukur; menyusun PRD/ACs.
+      - Input: output CIS, wawancara stakeholder, data research.
+      - Output: `docs/requirements.md`, PRD, checklist acceptance criteria.
+   - `architect`
+      - Fungsi: menyusun desain arsitektur tingkat tinggi, menentukan komponen teknis, alur data, dan aspek non-functional.
+      - Output: `docs/technical-spec.md`, diagram arsitektur, keputusan caching/scale.
+   - `pm` (Product Manager)
+      - Fungsi: prioritasi roadmap, alignment stakeholder, dan definisi milestone release.
+      - Output: roadmap, release plan, go/no-go criteria.
+   - `sm` (Scrum Master / Story Maker)
+      - Fungsi: memformat requirement jadi story-ready tasks dengan ACs, DoD, dan test pointers.
+      - Output: story markdown di `docs/stories/` dan tickets siap dikembangkan.
+   - `ux-expert`
+      - Fungsi: detailkan UI/UX, memastikan accessibility dan usability dari titik-titik interaksi.
+      - Output: wireframes, design tokens, accessibility checklist, prototype link.
+   - `dev`
+      - Fungsi: implementasi kode, menulis unit/integration tests, memperbaiki bug, dokumentasi perubahan.
+      - Output: PR yang berisi code, tests, dan instruksi testing.
+   - `tea` (Test Architect)
+      - Fungsi: merancang test strategy (unit/integration/E2E), threshold coverage, dan job CI untuk quality gates.
+      - Output: test plan, CI job definitions, quality rules.
+
+Interaksi praktis dan handoff:
+
+- CIS menghasilkan ide → `analyst` formalizes → `architect` + `ux-expert` desain solusi → `sm` membuat story-ready tasks → `dev` implement → `tea` pantau quality gates → CI/PR workflow → deploy.
+
+Praktik dokumentasi dan artefak yang direkomendasikan:
+
+- Taruh semua artefak (requirements, tech-spec, diagram, prototype) di `docs/` dan referensikan di `docs/bmm-workflow-status.md`.
+- Template PR harus mencakup: ringkasan perubahan, langkah pengujian lokal (how-to-test), daftar tests yang ditambahkan/diupdate, dan checklist quality gate.
+- `tea` harus menyertakan contoh CI job snippet (yml) di `bmad/bmm/workflows/testarch/` yang menjelaskan urutan test/run yang diperlukan.
 
 6) Checkpoints & Artifacts
    - Pastikan setiap artefak (requirements, tech-spec, stories, tests) di-commit dan di-link-kan di `docs/bmm-workflow-status.md`.

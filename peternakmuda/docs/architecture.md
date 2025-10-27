@@ -2,6 +2,8 @@
 title: Arsitektur Teknis — Landingpage Peternak Muda
 date: 2025-10-21
 author: BMad
+createdBy: architect
+updatedBy: architect
 ---
 
 Dokumen ini merangkum desain arsitektur untuk project "Peternak Muda" berdasarkan `docs/requirements.md`.

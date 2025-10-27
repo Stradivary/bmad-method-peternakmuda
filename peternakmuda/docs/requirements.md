@@ -2,6 +2,8 @@
 title: Requirements — Landingpage Peternak Muda
 date: 2025-10-20
 author: BMad
+createdBy: analyst
+updatedBy: analyst
 ---
 
 Dokumen ini menyusun requirement yang dapat langsung dipakai oleh analyst untuk membuat user stories / tickets. Konten berasal dari hasil brainstorming dan spesifikasi teknis di `docs/`.

@@ -3,6 +3,8 @@ title: "Brainstorming Session — Step 1: Session Topic & Goals"
 date: 2025-10-20
 facilitator: BMad
 participant: BMad
+createdBy: brainstorming-coach
+updatedBy: brainstorming-coach
 ---
 
 # Session Topic
