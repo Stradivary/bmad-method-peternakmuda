@@ -127,64 +127,53 @@ Berikut bagan ringkas alur agent dan proses. Gunakan ini sebagai panduan umum al
 flowchart TD
 
 %% ==== Creative & Ideation Suite ====
-subgraph CIS[Creative & Ideation Suite (CIS)]
-    A1["**brainstorming-coach**  
-Fasilitasi ideasi terstruktur  
-_Output:_ mindmaps, ide-boards"]
-
-    A2["**creative-problem-solver**  
-Berikan alternatif solusi & eksperimen  
-_Output:_ opsi solusi, A/B plan"]
-
-    A3["**storyteller**  
-Susun narasi produk & user journeys  
-_Output:_ draft stories, early ACs"]
+subgraph CIS[💡 Creative & Ideation Suite (CIS)]
+    A1["🧠 brainstorming-coach<br/>Fasilitator ideasi terstruktur<br/><b>Output:</b> mindmaps, ide-boards"]
+    A2["🎨 creative-problem-solver<br/>Alternatif solusi & eksperimen<br/><b>Output:</b> opsi solusi, A/B plan"]
+    A3["📖 storyteller<br/>Susun narasi produk & user journeys<br/><b>Output:</b> draft stories, early ACs"]
 end
 
 %% ==== Business & Modern Methods ====
-subgraph BMM[Business & Modern Methods (BMM)]
-    B1["**analyst**  
-Konversi ide jadi requirement  
-_Output:_ PRD, AC checklist"]
-
-    B2["**architect**  
-Desain arsitektur tingkat tinggi  
-_Output:_ technical-spec, diagram"]
-
-    B3["**pm (Product Manager)**  
-Prioritasi roadmap & milestone  
-_Output:_ roadmap, release plan"]
-
-    B4["**sm (Scrum Master / Story Maker)**  
-Format requirement jadi story-ready tasks  
-_Output:_ stories, DoD, test pointers"]
-
-    B5["**ux-expert**  
-Detailkan UI/UX, accessibility, usability  
-_Output:_ wireframes, tokens, prototype"]
+subgraph BMM[📊 Business & Modern Methods (BMM)]
+    B1["📈 analyst<br/>Konversi ide → requirement<br/><b>Output:</b> PRD, acceptance checklist"]
+    B2["🏗️ architect<br/>Desain arsitektur tingkat tinggi<br/><b>Output:</b> technical-spec, diagram"]
+    B3["🗺️ pm (Product Manager)<br/>Prioritasi roadmap & milestone<br/><b>Output:</b> roadmap, release plan"]
+    B4["🧩 sm (Scrum Master / Story Maker)<br/>Ubah requirement → story-ready tasks<br/><b>Output:</b> stories, DoD, test pointers"]
+    B5["🧑‍🎨 ux-expert<br/>Detailkan UI/UX, accessibility, usability<br/><b>Output:</b> wireframes, tokens, prototype"]
 end
 
 %% ==== Development & QA ====
-subgraph DEV[Development & Quality]
-    C1["**dev**  
-Implementasi kode & unit test  
-_Output:_ PR + docs"]
-
-    C2["**tea (Test Architect)**  
-Desain strategi testing & CI jobs  
-_Output:_ test plan, quality gates"]
+subgraph DEV[⚙️ Development & Quality]
+    C1["💻 dev<br/>Implementasi kode & unit test<br/><b>Output:</b> PR + documentation"]
+    C2["🧪 tea (Test Architect)<br/>Desain strategi testing & CI jobs<br/><b>Output:</b> test plan, quality gates"]
 end
 
-%% ==== Alur utama ====
+%% ==== Main Flow ====
 A1 --> A2 --> A3 --> B1
 B1 --> B2 --> B3 --> B4
 B2 --> B5
 B4 --> C1 --> C2
 
-%% ==== Feedback loops ====
-C2 -. feedback .-> B4
-B4 -. refinement .-> B1
-B1 -. clarification .-> A3
+%% ==== Feedback Loops ====
+C2 -.-> B4
+B4 -.-> B1
+B1 -.-> A3
+
+%% ==== Styling ====
+style CIS fill:#e3f2fd,stroke:#90caf9,stroke-width:2px,color:#000
+style BMM fill:#f3e5f5,stroke:#ba68c8,stroke-width:2px,color:#000
+style DEV fill:#e8f5e9,stroke:#81c784,stroke-width:2px,color:#000
+style A1 fill:#ffffff,stroke:#90caf9
+style A2 fill:#ffffff,stroke:#90caf9
+style A3 fill:#ffffff,stroke:#90caf9
+style B1 fill:#ffffff,stroke:#ba68c8
+style B2 fill:#ffffff,stroke:#ba68c8
+style B3 fill:#ffffff,stroke:#ba68c8
+style B4 fill:#ffffff,stroke:#ba68c8
+style B5 fill:#ffffff,stroke:#ba68c8
+style C1 fill:#ffffff,stroke:#81c784
+style C2 fill:#ffffff,stroke:#81c784
+
 ---
 
 
