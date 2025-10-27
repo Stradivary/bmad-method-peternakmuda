@@ -124,7 +124,7 @@ Berikut langkah praktis dan file referensi yang harus digunakan saat menyusun re
 Berikut bagan ringkas alur agent dan proses. Gunakan ini sebagai panduan umum alur kerja (ide → analisis → implementasi → test → deploy).
 
 ```mermaid
-flowchart TD
+flowchart TB
 
 %% ==== Creative & Ideation Suite ====
 subgraph CIS[💡 Creative & Ideation Suite (CIS)]
@@ -173,11 +173,9 @@ style B4 fill:#ffffff,stroke:#ba68c8
 style B5 fill:#ffffff,stroke:#ba68c8
 style C1 fill:#ffffff,stroke:#81c784
 style C2 fill:#ffffff,stroke:#81c784
+```
 
----
-
-
-Deskripsi agen (general, detil penting):
+### Deskripsi agen (general, detil penting):
 
 - CIS (Creative & Ideation Suite)
    - `brainstorming-coach`
