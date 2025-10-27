@@ -124,38 +124,45 @@ Berikut langkah praktis dan file referensi yang harus digunakan saat menyusun re
 Berikut bagan ringkas alur agent dan proses. Gunakan ini sebagai panduan umum alur kerja (ide → analisis → implementasi → test → deploy).
 
 ```mermaid
-flowchart TD
-    %% ==== Creative & Ideation Suite ====
-    subgraph CIS[💡 Creative & Ideation Suite]
-        A1["🧠 Brainstorming Coach\nOutput: mindmaps, ide-boards"]
-        A2["🎨 Creative Problem Solver\nOutput: opsi solusi, A/B test plan"]
-        A3["📖 Storyteller\nOutput: draft stories & early ACs"]
-        A1 --> A2 --> A3
-    end
+   graph TD
 
-    %% ==== Business & Modern Methods ====
-    subgraph BMM[📊 Business & Modern Methods]
-        B1["📈 Analyst\nOutput: PRD, acceptance checklist"]
-        B2["🏗️ Architect\nOutput: technical-spec, diagram"]
-        B3["🗺️ PM (Product Manager)\nOutput: roadmap, release plan"]
-        B4["🧩 SM (Scrum Master)\nOutput: stories, DoD, test pointers"]
-        B5["🧑‍🎨 UX Expert\nOutput: wireframes, tokens, prototype"]
-        B1 --> B2 --> B3 --> B4 --> B5
-    end
+   %% ==== Creative & Ideation Suite ====
+   subgraph CIS[💡 Creative & Ideation Suite]
+      A1["🧠 Brainstorming Coach\nFokus: ideasi & persona\nOutput: mindmaps"]
+      A2["🎨 Creative Problem Solver\nAlternatif solusi & eksperimen\nOutput: opsi solusi, A/B plan"]
+      A3["📖 Storyteller\nSusun narasi produk\nOutput: draft story & AC awal"]
+   end
 
-    %% ==== Development & QA ====
-    subgraph DEV[⚙️ Development & Quality]
-        C1["💻 Dev\nOutput: PR + documentation"]
-        C2["🧪 Test Architect\nOutput: test plan, quality gates"]
-        C1 --> C2
-    end
+   %% ==== Business & Modern Methods ====
+   subgraph BMM[📊 Business & Modern Methods]
+      B1["📈 Analyst\nKonversi ide → requirement\nOutput: PRD, AC"]
+      B2["🏗️ Architect\nDesain arsitektur teknis\nOutput: spec & diagram"]
+      B3["🗺️ PM\nPrioritasi roadmap & milestone\nOutput: roadmap"]
+      B4["🧩 SM\nUbah requirement → story-ready tasks\nOutput: stories, DoD, test pointers"]
+      B5["🎨 UX Expert\nDetailkan UI/UX, usability\nOutput: wireframes & prototype"]
+   end
 
-    %% ==== Main Flow ====
-    A3 --> B1
-    B5 --> C1
-    C2 -. feedback .-> B4
-    B4 -. refinement .-> B1
-    B1 -. clarification .-> A3
+   %% ==== Development & QA ====
+   subgraph DEV[⚙️ Development & QA]
+      C1["💻 Dev\nImplementasi kode & unit test\nOutput: PR + docs"]
+      C2["🧪 Test Architect\nDesain strategi testing\nOutput: test plan, quality gates"]
+   end
+
+   %% ==== Main Flow ====
+   A1 --> A2 --> A3 --> B1
+   B1 --> B2 --> B3 --> B4
+   B2 --> B5
+   B4 --> C1 --> C2
+
+   %% ==== Feedback Loops ====
+   C2 -.-> B4
+   B4 -.-> B1
+   B1 -.-> A3
+
+   %% ==== Styling ====
+   style CIS fill:#e3f2fd,color:#000
+   style BMM fill:#f3e5f5,color:#000
+   style DEV fill:#e8f5e9,color:#000
 ```
 
 ### Deskripsi agen (general, detil penting):
