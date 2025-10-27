@@ -124,54 +124,37 @@ Berikut langkah praktis dan file referensi yang harus digunakan saat menyusun re
 Berikut bagan ringkas alur agent dan proses. Gunakan ini sebagai panduan umum alur kerja (ide → analisis → implementasi → test → deploy).
 
 ```mermaid
-flowchart LR
-    %% ==== Creative & Ideation Suite ====
-    subgraph CIS[💡 Creative & Ideation Suite]
-        A1["🧠 brainstorming-coach<br/>Fasilitator sesi ideasi terstruktur<br/><b>Output:</b> mindmaps, ide-boards, list hipotesis"]
-        A2["🎨 creative-problem-solver<br/>Teknik kreatif & alternatif solusi teknis/UX<br/><b>Output:</b> opsi solusi, daftar eksperimen A/B, skenario risiko"]
-        A3["📖 storyteller<br/>Menyusun narasi produk & user journeys<br/><b>Output:</b> draft stories, early acceptance criteria"]
-    end
+flowchart TD
 
-    %% ==== Business & Modern Methods ====
-    subgraph BMM[📊 Business & Modern Methods]
-        B1["📈 analyst<br/>Konversi ide/cerita menjadi requirement terukur<br/><b>Output:</b> docs/requirements.md, PRD, checklist AC"]
-        B2["🏗️ architect<br/>Desain arsitektur tinggi & teknis<br/><b>Output:</b> docs/technical-spec.md, diagram arsitektur, keputusan caching/scale"]
-        B3["🗺️ pm (Product Manager)<br/>Prioritasi roadmap, alignment stakeholder, milestone Release<br/><b>Output:</b> roadmap, release plan, go/no-go criteria"]
-        B4["🧩 sm (Story Maker)<br/>Format requirement menjadi story-ready tasks<br/><b>Output:</b> markdown stories di docs/stories/, tickets ready"]
-        B5["🧑‍🎨 ux-expert<br/>Detail UI/UX, memastikan accessibility & usability<br/><b>Output:</b> wireframes, design tokens, prototype link"]
-    end
+%% === Creative & Ideation Suite ===
+subgraph CIS[Creative & Ideation Suite]
+A1[Brainstorming Coach<br>Fasilitasi ideasi terstruktur<br><b>Output:</b> mindmaps, ide-boards]
+A2[Creative Problem Solver<br>Berikan alternatif solusi & eksperimen<br><b>Output:</b> opsi solusi, A/B test plan]
+A3[Storyteller<br>Susun narasi produk & user journeys<br><b>Output:</b> draft stories & early ACs]
+end
 
-    %% ==== Development & Quality ====
-    subgraph DEV[⚙️ Development & Quality]
-        C1["💻 dev<br/>Implementasi kode, unit/integration tests, bug fix, dokumentasi<br/><b>Output:</b> PR yang berisi code, tests, instruksi testing"]
-        C2["🧪 tea (Test Architect)<br/>Rancang test strategy unit/integration/E2E & quality gates<br/><b>Output:</b> test plan, CI job definitions, quality rules"]
-    end
+%% === Business & Modern Methods ===
+subgraph BMM[Business & Modern Methods]
+B1[Business Analyst<br>Konversi ide menjadi requirement<br><b>Output:</b> PRD, acceptance checklist]
+B2[Architect<br>Desain arsitektur tingkat tinggi<br><b>Output:</b> technical spec, diagram]
+B3[Product Manager<br>Prioritasi roadmap & milestone<br><b>Output:</b> roadmap, release plan]
+B4[Scrum Master / Story Maker<br>Ubah requirement ke story-ready tasks<br><b>Output:</b> stories, DoD, test pointers]
+B5[UX Expert<br>Detailkan UI/UX, accessibility, usability<br><b>Output:</b> wireframes, tokens, prototype]
+end
 
-    %% ==== Alur Utama ====
-    A1 --> A2 --> A3 --> B1
-    B1 --> B2 --> B3 --> B4
-    B2 --> B5
-    B4 --> C1 --> C2
+%% === Development & QA ===
+subgraph DEV[Development & Quality]
+C1[Developer<br>Implementasi kode & unit test<br><b>Output:</b> PR + documentation]
+C2[Test Architect<br>Desain strategi testing & CI jobs<br><b>Output:</b> test plan, quality gates]
+end
 
-    %% ==== Feedback Loop ====
-    C2 -.-> B4
-    B4 -.-> B1
-    B1 -.-> A3
+%% === Alur utama ===
+A1 --> A2 --> A3 --> B1 --> B2 --> B3 --> B4 --> B5 --> C1 --> C2
 
-    %% ==== Styling ====
-    style CIS fill:#e3f2fd,stroke:#90caf9,stroke-width:2px,color:#000
-    style BMM fill:#f3e5f5,stroke:#ba68c8,stroke-width:2px,color:#000
-    style DEV fill:#e8f5e9,stroke:#81c784,stroke-width:2px,color:#000
-    style A1 fill:#ffffff,stroke:#90caf9
-    style A2 fill:#ffffff,stroke:#90caf9
-    style A3 fill:#ffffff,stroke:#90caf9
-    style B1 fill:#ffffff,stroke:#ba68c8
-    style B2 fill:#ffffff,stroke:#ba68c8
-    style B3 fill:#ffffff,stroke:#ba68c8
-    style B4 fill:#ffffff,stroke:#ba68c8
-    style B5 fill:#ffffff,stroke:#ba68c8
-    style C1 fill:#ffffff,stroke:#81c784
-    style C2 fill:#ffffff,stroke:#81c784
+%% === Feedback loops ===
+C2 --> B4
+B4 --> B1
+B1 --> A3
 ```
 
 ### Deskripsi agen (general, detil penting):
