@@ -123,46 +123,65 @@ Berikut langkah praktis dan file referensi yang harus digunakan saat menyusun re
 
 Berikut bagan ringkas alur agent dan proses. Gunakan ini sebagai panduan umum alur kerja (ide → analisis → implementasi → test → deploy).
 
+### Diagram Workflow Perencanaan
+
 ```mermaid
-   graph TD
+graph TD
+    A["Mulai: Ide Proyek"] --> B{"Opsional: Riset Analyst"}
+    B -->|Ya| C["Analyst: Brainstorming (Opsional)"]
+    B -->|Tidak| G{"Brief Proyek Tersedia?"}
+    C --> C2["Analyst: Riset Pasar (Opsional)"]
+    C2 --> C3["Analyst: Analisis Kompetitor (Opsional)"]
+    C3 --> D["Analyst: Buat Brief Proyek"]
+    D --> G
+    G -->|Ya| E["PM: Buat PRD dari Brief (Fast Track)"]
+    G -->|Tidak| E2["PM: Buat PRD Interaktif (Lebih Banyak Pertanyaan)"]
+    E --> F["PRD Berisi FR, NFR, Epics & Stories"]
+    E2 --> F
+    F --> F2{"Butuh UX?"}
+    F2 -->|Ya| F3["UX Expert: Buat Spesifikasi Front End"]
+    F2 -->|Tidak| H["Arsitek: Buat Arsitektur dari PRD"]
+    F3 --> F4["UX Expert: Generate UI Prompt untuk Lovable/V0 (Opsional)"]
+    F4 --> H2["Arsitek: Buat Arsitektur dari PRD + UX Spec"]
+    H --> Q{"Strategi Test Awal? (Opsional)"}
+    H2 --> Q
+    Q -->|Ya| R["QA: Test Awal pada Area Risiko Tinggi"]
+    Q -->|Tidak| I
+    R --> I["PO: Jalankan Master Checklist"]
+    I --> J{"Dokumen Selaras?"}
+    J -->|Ya| K["Perencanaan Selesai"]
+    J -->|Tidak| L["PO: Update Epics & Stories"]
+    L --> M["Update PRD/Arsitektur sesuai kebutuhan"]
+    M --> I
+    K --> N["📁 Pindah ke IDE (Jika dari Web Agent Platform)"]
+    N --> O["PO: Shard Dokumen"]
+    O --> P["Siap untuk Siklus SM/Dev"]
 
-   %% ==== Creative & Ideation Suite ====
-   subgraph CIS[💡 Creative & Ideation Suite]
-      A1["🧠 Brainstorming Coach\nFokus: ideasi & persona\nOutput: mindmaps"]
-      A2["🎨 Creative Problem Solver\nAlternatif solusi & eksperimen\nOutput: opsi solusi, A/B plan"]
-      A3["📖 Storyteller\nSusun narasi produk\nOutput: draft story & AC awal"]
-   end
-
-   %% ==== Business & Modern Methods ====
-   subgraph BMM[📊 Business & Modern Methods]
-      B1["📈 Analyst\nKonversi ide → requirement\nOutput: PRD, AC"]
-      B2["🏗️ Architect\nDesain arsitektur teknis\nOutput: spec & diagram"]
-      B3["🗺️ PM\nPrioritasi roadmap & milestone\nOutput: roadmap"]
-      B4["🧩 SM\nUbah requirement → story-ready tasks\nOutput: stories, DoD, test pointers"]
-      B5["🎨 UX Expert\nDetailkan UI/UX, usability\nOutput: wireframes & prototype"]
-   end
-
-   %% ==== Development & QA ====
-   subgraph DEV[⚙️ Development & QA]
-      C1["💻 Dev\nImplementasi kode & unit test\nOutput: PR + docs"]
-      C2["🧪 Test Architect\nDesain strategi testing\nOutput: test plan, quality gates"]
-   end
-
-   %% ==== Main Flow ====
-   A1 --> A2 --> A3 --> B1
-   B1 --> B2 --> B3 --> B4
-   B2 --> B5
-   B4 --> C1 --> C2
-
-   %% ==== Feedback Loops ====
-   C2 -.-> B4
-   B4 -.-> B1
-   B1 -.-> A3
-
-   %% ==== Styling ====
-   style CIS fill:#e3f2fd,color:#000
-   style BMM fill:#f3e5f5,color:#000
-   style DEV fill:#e8f5e9,color:#000
+    style A fill:#f5f5f5,color:#000
+    style B fill:#e3f2fd,color:#000
+    style C fill:#e8f5e9,color:#000
+    style C2 fill:#e8f5e9,color:#000
+    style C3 fill:#e8f5e9,color:#000
+    style D fill:#e8f5e9,color:#000
+    style E fill:#fff3e0,color:#000
+    style E2 fill:#fff3e0,color:#000
+    style F fill:#fff3e0,color:#000
+    style F2 fill:#e3f2fd,color:#000
+    style F3 fill:#e1f5fe,color:#000
+    style F4 fill:#e1f5fe,color:#000
+    style G fill:#e3f2fd,color:#000
+    style H fill:#f3e5f5,color:#000
+    style H2 fill:#f3e5f5,color:#000
+    style Q fill:#e3f2fd,color:#000
+    style R fill:#ffd54f,color:#000
+    style I fill:#f9ab00,color:#fff
+    style J fill:#e3f2fd,color:#000
+    style K fill:#34a853,color:#fff
+    style L fill:#f9ab00,color:#fff
+    style M fill:#fff3e0,color:#000
+    style N fill:#1a73e8,color:#fff
+    style O fill:#f9ab00,color:#fff
+    style P fill:#34a853,color:#fff
 ```
 
 ### Deskripsi agen (general, detil penting):
