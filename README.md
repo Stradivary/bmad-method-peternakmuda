@@ -124,34 +124,38 @@ Berikut langkah praktis dan file referensi yang harus digunakan saat menyusun re
 Berikut bagan ringkas alur agent dan proses. Gunakan ini sebagai panduan umum alur kerja (ide → analisis → implementasi → test → deploy).
 
 ```mermaid
-flowchart TB
-    subgraph CIS[💡 Creative & Ideation Suite (CIS)]
-        A1["🧠 Brainstorming Coach<br/>Output: mindmaps, ide-boards"]
-        A2["🎨 Creative Problem Solver<br/>Output: opsi solusi, A/B test plan"]
-        A3["📖 Storyteller<br/>Output: draft stories & early ACs"]
+flowchart TD
+    %% ==== Creative & Ideation Suite ====
+    subgraph CIS[💡 Creative & Ideation Suite]
+        A1["🧠 Brainstorming Coach\nOutput: mindmaps, ide-boards"]
+        A2["🎨 Creative Problem Solver\nOutput: opsi solusi, A/B test plan"]
+        A3["📖 Storyteller\nOutput: draft stories & early ACs"]
         A1 --> A2 --> A3
     end
 
-    subgraph BMM[📊 Business & Modern Methods (BMM)]
-        B1["📈 Analyst<br/>Output: PRD, acceptance checklist"]
-        B2["🏗️ Architect<br/>Output: technical-spec, diagram"]
-        B3["🗺️ PM (Product Manager)<br/>Output: roadmap, release plan"]
-        B4["🧩 SM (Scrum Master / Story Maker)<br/>Output: stories, DoD, test pointers"]
-        B5["🧑‍🎨 UX Expert<br/>Output: wireframes, tokens, prototype"]
+    %% ==== Business & Modern Methods ====
+    subgraph BMM[📊 Business & Modern Methods]
+        B1["📈 Analyst\nOutput: PRD, acceptance checklist"]
+        B2["🏗️ Architect\nOutput: technical-spec, diagram"]
+        B3["🗺️ PM (Product Manager)\nOutput: roadmap, release plan"]
+        B4["🧩 SM (Scrum Master)\nOutput: stories, DoD, test pointers"]
+        B5["🧑‍🎨 UX Expert\nOutput: wireframes, tokens, prototype"]
         B1 --> B2 --> B3 --> B4 --> B5
     end
 
+    %% ==== Development & QA ====
     subgraph DEV[⚙️ Development & Quality]
-        C1["💻 Dev<br/>Output: PR + documentation"]
-        C2["🧪 Test Architect<br/>Output: test plan, quality gates"]
+        C1["💻 Dev\nOutput: PR + documentation"]
+        C2["🧪 Test Architect\nOutput: test plan, quality gates"]
         C1 --> C2
     end
 
+    %% ==== Main Flow ====
     A3 --> B1
     B5 --> C1
-    C2 -.->|feedback| B4
-    B4 -.->|refinement| B1
-    B1 -.->|clarification| A3
+    C2 -. feedback .-> B4
+    B4 -. refinement .-> B1
+    B1 -. clarification .-> A3
 ```
 
 ### Deskripsi agen (general, detil penting):
