@@ -123,6 +123,7 @@ Berikut langkah praktis dan file referensi yang harus digunakan saat menyusun re
 
 Berikut bagan ringkas alur agent dan proses. Gunakan ini sebagai panduan umum alur kerja (ide → analisis → implementasi → test → deploy).
 
+```mermaid
 flowchart TD
 
 %% ==== Creative & Ideation Suite ====
@@ -157,6 +158,9 @@ B4 --> C1 --> C2
 C2 -. feedback .-> B4
 B4 -. refinement .-> B1
 B1 -. clarification .-> A3
+
+```mermaid
+
 
 Deskripsi agen (general, detil penting):
 
