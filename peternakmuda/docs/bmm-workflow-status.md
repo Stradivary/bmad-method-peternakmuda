@@ -18,7 +18,6 @@ LAST_UPDATED: 2025-10-21
 WORKFLOW_PATH: bmad/bmm/workflows/workflow-status/paths/brownfield-level-1.yaml
 OWNER: BMad
 createdBy: pm
-updatedBy: pm
 ---
 
 No workflow status was present. This file was created/initialized by the `workflow-init` helper and populated based on repository detection.

@@ -1,5 +1,6 @@
 <!-- Story: Gallery (copied from requirements) -->
 Title: [FEAT] Gallery — Grid & Lightbox
+createdBy: pm
 
 User Story
 ----------

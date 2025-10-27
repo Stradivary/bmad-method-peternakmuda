@@ -1,5 +1,6 @@
 <!-- Copied/adapted from docs/api-gallery.md: GET /api/gallery story for analyst -->
 Title: [API] GET /api/gallery — List Gallery Items
+createdBy: pm
 
 User Story
 ----------

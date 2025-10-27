@@ -2,7 +2,6 @@
 title: Epics & Stories — Peternak Muda (Gallery MVP)
 date: 2025-10-21
 createdBy: analyst
-updatedBy: sm
 ---
 
 # Epic: Gallery MVP

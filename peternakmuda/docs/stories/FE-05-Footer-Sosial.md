@@ -1,5 +1,6 @@
 <!-- Copied/adapted: Footer & Social Links story for analyst -->
 Title: [FEAT] Footer & Social Links
+createdBy: pm
 
 User Story
 ----------

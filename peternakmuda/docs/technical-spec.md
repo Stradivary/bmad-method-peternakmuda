@@ -1,6 +1,7 @@
 ---
 title: Spesifikasi Teknis — Landingpage Peternak Muda
 date: 2025-10-20
+createdBy: architect
 ---
 
 ## Kontrak singkat (untuk analyst dan engineer)

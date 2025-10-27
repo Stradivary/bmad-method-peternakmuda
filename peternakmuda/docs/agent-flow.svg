@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="140" viewBox="0 0 900 140">
+  <style>
+    .box { fill: #f8fafc; stroke: #1f2937; stroke-width:1.5; rx:6; }
+    .label { font-family: Inter, Arial, sans-serif; font-size:12px; fill:#0f172a; }
+    .title { font-family: Inter, Arial, sans-serif; font-size:13px; font-weight:600; fill:#0f172a; }
+    .arrow { stroke:#6b7280; stroke-width:2; fill:none; marker-end:url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <path d="M0,0 L10,3.5 L0,7 z" fill="#6b7280" />
+    </marker>
+  </defs>
+
+  <!-- Boxes -->
+  <rect class="box" x="12" y="16" width="130" height="48" />
+  <text class="title" x="78" y="34" text-anchor="middle">CIS</text>
+  <text class="label" x="78" y="50" text-anchor="middle">Ideation</text>
+
+  <rect class="box" x="162" y="16" width="170" height="48" />
+  <text class="title" x="247" y="34" text-anchor="middle">BMM</text>
+  <text class="label" x="247" y="50" text-anchor="middle">Analysis & Design</text>
+
+  <rect class="box" x="352" y="16" width="150" height="48" />
+  <text class="title" x="427" y="34" text-anchor="middle">DEV</text>
+  <text class="label" x="427" y="50" text-anchor="middle">Development & UX</text>
+
+  <rect class="box" x="512" y="16" width="170" height="48" />
+  <text class="title" x="597" y="34" text-anchor="middle">TEST</text>
+  <text class="label" x="597" y="50" text-anchor="middle">Testing (Frontend)</text>
+
+  <rect class="box" x="692" y="16" width="196" height="48" />
+  <text class="title" x="790" y="34" text-anchor="middle">CI → DEPLOY</text>
+  <text class="label" x="790" y="50" text-anchor="middle">Review & Vercel</text>
+
+  <!-- Arrows -->
+  <path class="arrow" d="M142,40 L162,40" />
+  <path class="arrow" d="M332,40 L352,40" />
+  <path class="arrow" d="M502,40 L512,40" />
+  <path class="arrow" d="M682,40 L692,40" />
+
+  <!-- Faint guideline labels below -->
+  <text class="label" x="78" y="84" text-anchor="middle">Idea → hypotheses</text>
+  <text class="label" x="247" y="84" text-anchor="middle">Spec & design</text>
+  <text class="label" x="427" y="84" text-anchor="middle">Implement & test</text>
+  <text class="label" x="597" y="84" text-anchor="middle">QA & gates</text>
+  <text class="label" x="790" y="84" text-anchor="middle">Review → Prod</text>
+</svg>

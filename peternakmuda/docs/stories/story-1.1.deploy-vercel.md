@@ -2,6 +2,7 @@
 title: Story 1.1: Deploy Frontend ke Vercel
 date: 2025-10-21
 author: BMad
+createdBy: sm
 ---
 
 Status: Approved

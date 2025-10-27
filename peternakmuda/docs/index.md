@@ -3,7 +3,6 @@ title: Landingpage Peternak Muda — Dokumentasi Awal
 date: 2025-10-20
 author: BMad
 createdBy: storyteller
-updatedBy: analyst
 ---
 
 # Ringkasan Proyek

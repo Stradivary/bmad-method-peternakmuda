@@ -1,5 +1,6 @@
 <!-- Copied from docs/issues/QA-01-Unit-Tests-Coverage.md -->
-Title: [TEST] Unit Tests & Coverage — Baseline
+title: [TEST] Unit Tests & Coverage — Baseline
+createdBy: pm
 
 User Story
 ----------

@@ -1,6 +1,7 @@
 ---
 title: Technical Specification — Peternak Muda (Gallery MVP)
 date: 2025-10-21
+createdBy: architect
 ---
 
 ## Summary

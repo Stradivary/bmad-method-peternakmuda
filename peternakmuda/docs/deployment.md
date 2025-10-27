@@ -2,7 +2,6 @@
 title: Deployment Guide — Vercel
 date: 2025-10-21
 createdBy: pm
-updatedBy: dev
 ---
 
 This document describes how to deploy the frontend (Next.js) to Vercel and the recommended CI checks.

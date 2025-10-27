@@ -1,10 +1,12 @@
 <!-- Copied/adapted from requirements and issue templates -->
 Title: [FEAT] About — Misi & Benefit
+createdBy: pm
 
 User Story
 ----------
 Sebagai pengunjung, saya ingin membaca misi Peternak Muda supaya mengerti manfaat bergabung.
 
+<!-- createdBy: sm -->
 Acceptance Criteria
 -------------------
 1. Teks dengan bullet highlights dan ilustrasi tersedia.

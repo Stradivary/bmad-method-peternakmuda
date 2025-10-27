@@ -123,21 +123,11 @@ Berikut langkah praktis dan file referensi yang harus digunakan saat menyusun re
 
 Berikut bagan ringkas alur agent dan proses. Gunakan ini sebagai panduan umum alur kerja (ide → analisis → implementasi → test → deploy).
 
-```mermaid
-flowchart LR
-   CIS[CIS agents\n(Ideation)]
-   BMM[BMM agents\n(Analysis & Design)]
-   DEV[Development & UX]
-   TEST[Testing (Frontend)]
-   CI[CI / Review]
-   DEPLOY[Deployment (Vercel)]
+![Agent & workflow flowchart](peternakmuda/docs/agent-flow.svg)
 
-   CIS --> BMM
-   BMM --> DEV
-   DEV --> TEST
-   TEST --> CI
-   CI --> DEPLOY
-```
+If your viewer doesn't render images, here's a simple text flow you can read:
+
+CIS (Ideation) → BMM (Analysis & Design) → DEV (Development & UX) → TEST (Testing) → CI/Deploy (Review & Vercel)
 
 Jika viewer tidak merender Mermaid, anggaplah alur logis sebagai: CIS → BMM → Dev → Test → CI → Deploy.
 

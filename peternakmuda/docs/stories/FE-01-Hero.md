@@ -1,5 +1,6 @@
 <!-- Copied from docs/issues/FE-01-Hero.md -->
 Title: [FEAT] Hero — Value Proposition & CTA
+createdBy: pm
 
 User Story
 ----------
