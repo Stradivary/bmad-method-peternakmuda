@@ -126,28 +126,28 @@ Berikut bagan ringkas alur agent dan proses. Gunakan ini sebagai panduan umum al
 ### Diagram Workflow Perencanaan
 
 ```mermaid
-   graph TD
+  graph TD
 
    %% ==== Creative & Ideation Suite ====
    subgraph CIS[💡 Creative & Ideation Suite]
-      A1["🧠 Brainstorming Coach\\nFokus: ideasi & persona\\nOutput: mindmaps"]
-      A2["🎨 Creative Problem Solver\\nAlternatif solusi & eksperimen\\nOutput: opsi solusi, A/B plan"]
-      A3["📖 Storyteller\\nSusun narasi produk\\nOutput: draft story & AC awal"]
+      A1["🧠 **Brainstorming Coach:** Fokus ideasi & persona; Output: mindmaps"]
+      A2["🎨 **Creative Problem Solver:** Alternatif solusi & eksperimen; Output: opsi solusi, A/B plan"]
+      A3["📖 **Storyteller:** Susun narasi produk; Output: draft story & AC awal"]
    end
 
    %% ==== Business & Modern Methods ====
    subgraph BMM[📊 Business & Modern Methods]
-      B1["📈 Analyst\\nKonversi ide → requirement\\nOutput: PRD, AC"]
-      B2["🏗️ Architect\\nDesain arsitektur teknis\\nOutput: spec & diagram"]
-      B3["🗺️ PM\\nPrioritasi story, roadmap & milestone\\nOutput: roadmap"]
-      B4["🧩 SM\\nUbah requirement → story-ready tasks\\nOutput: stories, DoD, test pointers"]
-      B5["🎨 UX Expert\\nDetailkan UI/UX, usability\\nOutput: wireframes & prototype"]
+      B1["📈 **Analyst:** Konversi ide → requirement; Output: PRD, AC"]
+      B2["🏗️ **Architect:** Desain arsitektur teknis; Output: spec & diagram"]
+      B3["🗺️ **PM:** Prioritasi story, roadmap & milestone; Output: roadmap"]
+      B4["🧩 **SM:** Ubah requirement → story-ready tasks; Output: stories, DoD, test pointers"]
+      B5["🎨 **UX Expert:** Detailkan UI/UX, usability; Output: wireframes & prototype"]
    end
 
    %% ==== Development & QA ====
    subgraph DEV[⚙️ Development & QA]
-      C1["💻 Dev\\nImplementasi kode & unit test\\nOutput: PR + docs"]
-      C2["🧪 Test Architect\\nDesain strategi testing\\nOutput: test plan, quality gates"]
+      C1["💻 **Dev:** Implementasi kode & unit test; Output: PR + docs"]
+      C2["🧪 **Test Architect:** Desain strategi testing; Output: test plan, quality gates"]
    end
 
    %% ==== Main Flow ====
@@ -162,9 +162,9 @@ Berikut bagan ringkas alur agent dan proses. Gunakan ini sebagai panduan umum al
    B1 -.-> A3
 
    %% ==== Styling ====
-   style CIS fill:#e3f2fd,color:#000
-   style BMM fill:#f3e5f5,color:#000
-   style DEV fill:#e8f5e9,color:#000
+   style CIS fill:#e3f2fd,color:#000,stroke:#90caf9,stroke-width:2px
+   style BMM fill:#f3e5f5,color:#000,stroke:#ce93d8,stroke-width:2px
+   style DEV fill:#e8f5e9,color:#000,stroke:#a5d6a7,stroke-width:2px
 ```
 
 ### Deskripsi agen (general, detil penting):
